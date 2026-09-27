@@ -1,0 +1,393 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Skatt i Sverige</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --g1:#ffffff; --g2:#f2f7fd; --g3:#dfeaf9;
+  --panel:#ffffff; --panel2:#f7fafd;
+  --ink:#13202e; --ink2:#4c5d72; --muted:#82909f; --line:#dce5f1; --grid:#e9eff7;
+  --cs:#2f6fae; --ps:#c17d16; --rev:#64788c; --dwl:#b23f2c; --accent:#10695a;
+  --shadow:0 1px 2px rgba(23,54,99,.05), 0 10px 26px -14px rgba(23,54,99,.16);
+}
+body{
+  background:var(--g1);
+  background-image:
+    radial-gradient(900px 620px at 92% 2%,rgba(150,190,240,.62) 0%,rgba(150,190,240,0) 70%),
+    radial-gradient(760px 560px at 6% 22%,rgba(190,214,247,.75) 0%,rgba(190,214,247,0) 72%),
+    radial-gradient(1000px 700px at 62% 46%,rgba(205,224,250,.70) 0%,rgba(205,224,250,0) 70%),
+    radial-gradient(820px 620px at 10% 78%,rgba(165,200,243,.55) 0%,rgba(165,200,243,0) 72%),
+    radial-gradient(900px 640px at 96% 92%,rgba(140,184,238,.50) 0%,rgba(140,184,238,0) 70%),
+    linear-gradient(180deg,#ffffff 0%,#eef4fc 55%,#dbe8f8 100%);
+  background-attachment:fixed;
+  color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.55;
+  padding-inline:16px;min-height:100%;
+}
+html,body{height:100%}
+.wrap{max-width:1320px;margin-inline:auto;padding-block:40px 72px}
+.wrap h1,.wrap h2{font-family:"Newsreader",Georgia,serif;font-weight:600;text-wrap:balance}
+.wrap h1{font-size:44px;line-height:1.12;letter-spacing:-.01em}
+.wrap h2{font-size:23px;line-height:1.3}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;box-shadow:var(--shadow)}
+.lbl{font-size:12px;letter-spacing:.075em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.tab{border:1px solid var(--line);background:var(--panel);color:var(--ink2);padding:10px 18px;border-radius:6px;cursor:pointer;font:inherit;font-size:15px;box-shadow:var(--shadow);transition:border-color .12s,color .12s}
+.tab:hover{border-color:var(--accent);color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--g1);border-color:var(--ink)}
+.chip{border:1px solid var(--line);background:var(--panel2);color:var(--ink2);padding:3px 9px;border-radius:4px;cursor:pointer;font:inherit;font-size:12px}
+.chip:hover{border-color:var(--accent);color:var(--ink)}
+.tab:focus-visible,.chip:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+select,input[type=number],textarea{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:9px 10px;font:inherit;width:100%}
+textarea{font-size:12.5px;line-height:1.55;resize:vertical}
+.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+.svgtxt{fill:var(--ink2);font-family:"IBM Plex Mono",monospace;font-size:13px}
+.svglbl{fill:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:500}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+a{color:var(--accent);text-underline-offset:2px}
+.flag{color:var(--dwl);font-weight:500}
+.ok{color:var(--accent);font-weight:500}
+.tabwrap{overflow-x:auto}
+.cite{font-size:12.5px;color:var(--muted);line-height:1.45}
+</style>
+
+<div class="wrap">
+  <header class="mb-8">
+    <p class="lbl mb-2">Mikroekonomi · Skatteincidens · Sverige 2026</p>
+    <h1>Skattekilen: vem betalar punktskatten och vad kostar den i välfärd?</h1>
+    <p class="mt-4 max-w-3xl" style="color:var(--ink2);font-size:16.5px">Dra i skattereglaget för cigaretter, bensin, sprit, vin eller starköl. Kilen mellan konsument- och producentpris, fördelningen av skattebördan och triangeln för effektivitetsförlust räknas om direkt. Skattesatserna är hämtade från Skatteverket och gäller den 19 september 2026. Elasticiteterna är hämtade ur publicerade metastudier och kan ändras med reglagen.</p>
+  </header>
+
+  <div class="flex flex-wrap gap-2.5 mb-5" id="goods" role="group" aria-label="Välj vara"></div>
+
+  <div class="grid gap-4 lg:grid-cols-[minmax(0,1fr)_380px]">
+   <div class="flex flex-col gap-4">
+    <section class="panel">
+      <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-3">
+        <h2 id="chartTitle">Marknaden</h2>
+        <div class="flex flex-wrap gap-x-4 gap-y-1" style="color:var(--ink2);font-size:14px">
+          <span><i class="dot" style="background:var(--cs)"></i>Konsumentens del</span>
+          <span><i class="dot" style="background:var(--ps)"></i>Producentens del</span>
+          <span><i class="dot" style="background:var(--dwl);background-image:repeating-linear-gradient(45deg,transparent 0 2px,rgba(255,255,255,.55) 2px 3px)"></i>Effektivitetsförlust</span>
+        </div>
+      </div>
+      <svg id="chart" viewBox="0 0 720 560" role="img" aria-label="Utbuds- och efterfrågediagram med skattekil, konsument- och producentbörda samt effektivitetsförlust" style="width:100%;height:auto;display:block"></svg>
+      <p class="mt-2 cite">Heldragen linje: efterfrågan D och utbud S före skatt. Streckad linje: utbud inklusive punktskatt och moms. Kvantiteten är indexerad så att dagens nivå är 100.</p>
+    </section>
+
+    <section class="panel">
+      <h2 class="mb-2">Modell och antaganden</h2>
+      <p style="color:var(--ink2);font-size:16px;line-height:1.65;max-width:78ch">Linjär efterfrågan och linjärt utbud kalibreras genom dagens jämvikt (P<sub>0</sub>, Q<sub>0</sub>) med de valda elasticiteterna. Konsumentpriset är P<sub>c</sub> = k(P<sub>p</sub> + s), där s är styckeskatten och k = (1 + moms) / (1 − värdeskatt). Endast cigaretter har en värdeskattekomponent (1 % av detaljhandelspriset). Jämvikten löses ur D(P<sub>c</sub>) = S(P<sub>p</sub>) och jämförs med en marknad helt utan punktskatt och moms. Effektivitetsförlusten beräknas som ½ · (P<sub>c</sub> − P<sub>p</sub>) · (Q* − Q), vilket är exakt för linjära kurvor. Modellen är statisk och partiell: den fångar varken gränshandel, illegal handel, externaliteter eller substitution mellan varugrupperna.</p>
+    </section>
+   </div>
+
+    <aside class="flex flex-col gap-4">
+      <div class="panel flex flex-col gap-6">
+        <div>
+          <div class="flex justify-between items-baseline gap-2"><label class="lbl" for="sTax">Punktskatt</label><span class="num" id="sTaxV"></span></div>
+          <input type="range" id="sTax" min="0" max="100" step="0.5" value="50">
+          <div class="flex flex-wrap gap-1.5 mt-1.5" id="presets"></div>
+          <p class="cite mt-1.5" id="sTaxNote"></p>
+        </div>
+        <div>
+          <label class="lbl" for="vat">Momssats</label>
+          <select id="vat"><option value="0.25">25 % (normalskattesats)</option><option value="0.12">12 %</option><option value="0.06">6 %</option><option value="0">0 %</option></select>
+        </div>
+        <div>
+          <div class="flex justify-between items-baseline gap-2"><label class="lbl" for="eD">Priselasticitet, efterfrågan</label><span class="num" id="eDV"></span></div>
+          <input type="range" id="eD" min="-2" max="-0.1" step="0.01">
+          <p class="cite mt-1" id="eDcite"></p>
+        </div>
+        <div>
+          <div class="flex justify-between items-baseline gap-2"><label class="lbl" for="eS">Priselasticitet, utbud</label><span class="num" id="eSV"></span></div>
+          <input type="range" id="eS" min="1" max="6" step="0.1">
+          <p class="cite mt-1">Eget antagande. Varorna är industriellt tillverkade, så utbudet antas elastiskt.</p>
+        </div>
+        <div>
+          <label class="lbl" for="p0">Butikspris, <span id="unit"></span></label>
+          <input type="number" id="p0" min="1" step="1">
+          <p class="cite mt-1" id="pCite"></p>
+        </div>
+      </div>
+      <div class="panel" id="readout"></div>
+    </aside>
+  </div>
+
+  <div class="grid gap-5 mt-5 md:grid-cols-2">
+    <section class="panel">
+      <h2 class="mb-3">Fördelning av total nytta</h2>
+      <div id="surplus"></div>
+    </section>
+    <section class="panel">
+      <h2 class="mb-3">Skatteincidens</h2>
+      <div id="incidence"></div>
+    </section>
+  </div>
+
+  <section class="panel mt-5">
+    <h2 class="mb-1">Källor</h2>
+    <p class="cite mb-3">Hämtat 19 september 2026. Skattesatser och elasticiteter är belagda; butikspriser är representativa nivåer som du skriver över med reglagen.</p>
+    <div class="tabwrap"><table>
+      <thead><tr><th>Uppgift</th><th>Värde</th><th>Källa</th><th>Status</th></tr></thead>
+      <tbody id="sources"></tbody>
+    </table></div>
+  </section>
+</div>
+
+<script>
+/* ============================================================
+   DATA
+   Tax rates: Skatteverket, valid 19 Sep 2026.
+   Demand elasticities: published meta-analyses (cited per good).
+   Retail prices: representative levels, overridden by the user.
+   ============================================================ */
+const GOODS = {
+  cig: {
+    name:'Cigaretter', unit:'SEK per paket om 20 st',
+    pc0:80, s0:20*2.08, a:0.01, v:0.25, sMax:120,
+    eD:-0.40, eS:2.0,
+    eDcite:'Gallet &amp; List (2003), medianvärde kort sikt. IARC (2011) anger −0,4 för höginkomstländer.',
+    pCite:'Representativ nivå; paket om 20 kostar ca 75–95 kr i Sverige 2026.',
+    taxNote:'2,08 kr per cigarett plus 1 % av detaljhandelspriset, från 1 januari 2026.',
+    presets:[['Dagens nivå',20*2.08]]
+  },
+  petrol: {
+    name:'Bensin', unit:'SEK per liter',
+    pc0:15.90, s0:0.70+0.87, a:0, v:0.25, sMax:7,
+    eD:-0.34, eS:3.0,
+    eDcite:'Brons m.fl. (2008), metaanalys, kort sikt −0,34 och lång sikt −0,84.',
+    pCite:'Riktpris bensin 95, augusti 2026. Drivkraft Sverige för löpande statistik.',
+    taxNote:'Energiskatt 0,70 kr + koldioxidskatt 0,87 kr per liter, miljöklass 1. Båda är tillfälligt sänkta.',
+    presets:[['Idag 1,57',1.57],['1 okt 2,39',2.39],['1 dec 4,79',4.79]]
+  },
+  spirits: {
+    name:'Sprit', unit:'SEK per flaska 70 cl, 40 %',
+    pc0:245, s0:526.97*0.7*0.4, a:0, v:0.25, sMax:320,
+    eD:-0.80, eS:2.0,
+    eDcite:'Wagenaar m.fl. (2009), metaanalys av 1 003 skattningar: sprit −0,80.',
+    pCite:'Representativ nivå för 70 cl 40 %; kontrollera mot Systembolagets prislista.',
+    taxNote:'526,97 kr per liter ren alkohol, alltså 147,55 kr på en flaska 70 cl 40 %.',
+    presets:[['Dagens nivå',526.97*0.7*0.4]]
+  },
+  wine: {
+    name:'Vin', unit:'SEK per flaska 75 cl, 13 %',
+    pc0:110, s0:29.58*0.75, a:0, v:0.25, sMax:60,
+    eD:-0.69, eS:2.0,
+    eDcite:'Wagenaar m.fl. (2009): vin −0,69.',
+    pCite:'Representativ nivå för 75 cl; kontrollera mot Systembolagets prislista.',
+    taxNote:'29,58 kr per liter för 8,5–15 volymprocent, alltså 22,19 kr per flaska 75 cl.',
+    presets:[['Dagens nivå',29.58*0.75]]
+  },
+  beer: {
+    name:'Starköl', unit:'SEK per burk 50 cl, 5 %',
+    pc0:20, s0:2.28*5*0.5, a:0, v:0.25, sMax:16,
+    eD:-0.46, eS:2.0,
+    eDcite:'Wagenaar m.fl. (2009): öl −0,46.',
+    pCite:'Representativ nivå för 50 cl; kontrollera mot Systembolagets prislista.',
+    taxNote:'2,28 kr per liter och volymprocent, alltså 5,70 kr per burk 50 cl 5 %.',
+    presets:[['Dagens nivå',2.28*5*0.5]]
+  }
+};
+const Q0 = 100;
+const $ = id => document.getElementById(id);
+const fmt = (x,d=2) => x.toLocaleString('sv-SE',{minimumFractionDigits:d,maximumFractionDigits:d});
+const st = {key:'cig', s:0, v:0.25, eD:-0.4, eS:2, pc0:80};
+
+/* ============================================================
+   MODEL  — edit the economics here
+   ============================================================ */
+function calibrate(g){
+  // Baseline regime pins the curves; the scenario then varies s and VAT.
+  const k0 = (1+g.v)/(1-g.a);
+  const Pp0 = st.pc0/k0 - g.s0;            // producer price implied by today's retail price
+  if(!(Pp0 > 0.01)) return null;           // retail price below the tax floor: not a valid calibration
+  const bD = st.eD*Q0/st.pc0;              // dQ/dP along demand
+  const bS = st.eS*Q0/Pp0;                 // dQ/dP along supply
+  return {k0,Pp0,bD,bS,a:g.a};
+}
+function solve(m,s,v,noTax){
+  const k  = noTax ? 1 : (1+v)/(1-m.a);
+  const ss = noTax ? 0 : s;
+  const Pp = (m.bD*st.pc0 - m.bD*k*ss - m.bS*m.Pp0)/(m.bD*k - m.bS);
+  const Q  = Q0 + m.bS*(Pp-m.Pp0);
+  return {k,s:ss,Pp,Q,Pc:k*(Pp+ss)};
+}
+const Pd = (m,Q)=> st.pc0 + (Q-Q0)/m.bD;   // inverse demand
+const Ps = (m,Q)=> m.Pp0 + (Q-Q0)/m.bS;    // inverse supply, before tax
+function outcome(m){
+  const star = solve(m,0,0,true), t = solve(m,st.s,st.v,false);
+  const W = t.Pc - t.Pp;
+  const CS1 = .5*t.Q*(Pd(m,0)-t.Pc),     PS1 = .5*t.Q*(t.Pp-Ps(m,0));
+  const CS0 = .5*star.Q*(Pd(m,0)-star.Pc), PS0 = .5*star.Q*(star.Pc-Ps(m,0));
+  const rev = W*t.Q, dwl = .5*W*(star.Q-t.Q);
+  const cBurden = (t.Pc-star.Pc)*t.Q, pBurden = (star.Pc-t.Pp)*t.Q;
+  return {star,t,W,CS1,PS1,CS0,PS0,rev,dwl,cBurden,pBurden,total0:CS0+PS0};
+}
+
+/* ============================================================
+   VIEW
+   ============================================================ */
+function buildTabs(){
+  const box=$('goods'); box.innerHTML='';
+  for(const [k,g] of Object.entries(GOODS)){
+    const b=document.createElement('button');
+    b.className='tab'; b.type='button'; b.textContent=g.name;
+    b.setAttribute('aria-pressed',k===st.key);
+    b.onclick=()=>select(k);
+    box.appendChild(b);
+  }
+}
+function select(k){
+  const g=GOODS[k];
+  Object.assign(st,{key:k,s:g.s0,v:g.v,eD:g.eD,eS:g.eS,pc0:g.pc0});
+  $('sTax').max=g.sMax; $('sTax').step=(g.sMax/400).toFixed(4); $('sTax').value=st.s;
+  $('vat').value=g.v; $('eD').value=g.eD; $('eS').value=g.eS;
+  $('p0').value=g.pc0; $('unit').textContent=g.unit;
+  $('eDcite').innerHTML=g.eDcite; $('pCite').textContent=g.pCite;
+  const pr=$('presets'); pr.innerHTML='';
+  g.presets.forEach(([lab,val])=>{
+    const b=document.createElement('button');
+    b.className='chip'; b.type='button'; b.textContent=lab;
+    b.onclick=()=>{st.s=val; $('sTax').value=val; render();};
+    pr.appendChild(b);
+  });
+  buildTabs(); render();
+}
+function bar(parts){
+  const tot=parts.reduce((a,p)=>a+Math.max(0,p[1]),0)||1;
+  const pct=p=>100*Math.max(0,p[1])/tot;
+  let h='<div style="display:flex;gap:2px;height:46px" role="img" aria-label="'+parts.map(p=>p[0]+' '+fmt(pct(p),1)+' procent').join(', ')+'">';
+  for(const p of parts){
+    h+=`<div title="${p[0]}: ${fmt(pct(p),1)} %" style="width:${pct(p)}%;background:${p[2]};`+
+       (p[3]?'background-image:repeating-linear-gradient(45deg,transparent 0 3px,rgba(255,255,255,.5) 3px 4px);':'')+
+       'border-radius:2px"></div>';
+  }
+  h+='</div><div class="mt-3 grid gap-y-1">';
+  for(const p of parts){
+    h+=`<div class="flex justify-between gap-3"><span><i class="dot" style="background:${p[2]}"></i>${p[0]}</span><span class="num">${fmt(pct(p),1)} %</span></div>`;
+  }
+  return h+'</div>';
+}
+function render(){
+  const g=GOODS[st.key], m=calibrate(g);
+  if(!m){
+    $('readout').innerHTML='<p class="flag">Butikspriset är lägre än skatten på varan, så det går inte att kalibrera en meningsfull utbudskurva. Höj priset.</p>';
+    return;
+  }
+  const o=outcome(m), t=o.t, star=o.star;
+  $('sTaxV').textContent = fmt(st.s)+' kr';
+  $('sTaxNote').textContent = g.taxNote;
+  $('eDV').textContent=fmt(st.eD); $('eSV').textContent=fmt(st.eS,1);
+  $('chartTitle').textContent = g.name+', '+g.unit;
+
+  /* ---- chart ---- */
+  const W=720,H=560,ml=58,mr=22,mt=18,mb=46, qlo=60,qhi=140;
+  // Price axis runs from 0 to a rounded tick multiple, framing the taxed
+  // equilibrium. D and S are clipped where they leave the frame.
+  const niceCeil=x=>{
+    if(!(x>0)) return 1;
+    const e=Math.pow(10,Math.floor(Math.log10(x))), f=x/e;
+    return (f<=1?1:f<=2?2:f<=2.5?2.5:f<=4?4:f<=5?5:f<=8?8:10)*e;
+  };
+  const peak=Math.max(t.Pc,star.Pc,t.k*(Ps(m,t.Q)+t.s));
+  const tick=niceCeil(peak*1.22/4);
+  let ylo=0, yhi=tick*4;
+  const X=q=>ml+(q-qlo)/(qhi-qlo)*(W-ml-mr), Y=p=>H-mb-(p-ylo)/(yhi-ylo)*(H-mt-mb);
+  const line=(f,col,dash)=>`<path d="M${X(qlo)},${Y(f(qlo))} L${X(qhi)},${Y(f(qhi))}" stroke="${col}" stroke-width="2" fill="none"${dash?' stroke-dasharray="6 5"':''}/>`;
+  const dec = yhi>50?0:1;
+
+  let s='<defs><clipPath id="cp"><rect x="'+ml+'" y="'+mt+'" width="'+(W-ml-mr)+'" height="'+(H-mt-mb)+'"/></clipPath>'+
+    '<pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'+
+    '<rect width="6" height="6" fill="var(--dwl)" fill-opacity=".40"/>'+
+    '<line x1="0" y1="0" x2="0" y2="6" stroke="var(--panel)" stroke-width="2"/></pattern></defs>';
+  for(let i=0;i<=4;i++){
+    const p=ylo+(yhi-ylo)*i/4;
+    s+=`<line x1="${ml}" x2="${W-mr}" y1="${Y(p)}" y2="${Y(p)}" stroke="var(--grid)"/>`+
+       `<text class="svgtxt" x="${ml-9}" y="${Y(p)+4}" text-anchor="end">${fmt(p,dec)}</text>`;
+  }
+  for(let q=60;q<=140;q+=20) s+=`<text class="svgtxt" x="${X(q)}" y="${H-mb+18}" text-anchor="middle">${q}</text>`;
+  s+=`<text class="svgtxt" x="${(ml+W-mr)/2}" y="${H-8}" text-anchor="middle">Kvantitet (index, dagens nivå = 100)</text>`;
+  s+='<g clip-path="url(#cp)">';
+  const x0=X(qlo), x1=X(t.Q);
+  s+=`<rect x="${x0}" y="${Y(t.Pc)}" width="${Math.max(0,x1-x0)}" height="${Math.max(0,Y(star.Pc)-Y(t.Pc))}" fill="var(--cs)" fill-opacity=".28"><title>Konsumentens del av skatten: ${fmt(o.cBurden,0)} kr</title></rect>`;
+  s+=`<rect x="${x0}" y="${Y(star.Pc)}" width="${Math.max(0,x1-x0)}" height="${Math.max(0,Y(t.Pp)-Y(star.Pc))}" fill="var(--ps)" fill-opacity=".32"><title>Producentens del av skatten: ${fmt(o.pBurden,0)} kr</title></rect>`;
+  s+=`<path d="M${x1},${Y(t.Pc)} L${x1},${Y(t.Pp)} L${X(star.Q)},${Y(star.Pc)} Z" fill="url(#hat)" stroke="var(--dwl)" stroke-width="1.5"><title>Effektivitetsförlust: ${fmt(o.dwl,0)} kr</title></path>`;
+  s+=line(q=>Pd(m,q),'var(--cs)')+line(q=>Ps(m,q),'var(--ps)')+line(q=>t.k*(Ps(m,q)+t.s),'var(--ps)',true);
+  s+=`<line x1="${x1}" x2="${x1}" y1="${H-mb}" y2="${Y(t.Pc)}" stroke="var(--ink2)" stroke-dasharray="3 4"/>`;
+  s+=`<line x1="${ml}" x2="${X(star.Q)}" y1="${Y(star.Pc)}" y2="${Y(star.Pc)}" stroke="var(--muted)" stroke-dasharray="3 4"/>`;
+  s+='</g>';
+  const dot=(q,p,l,dx,dy,anchor)=>`<circle cx="${X(q)}" cy="${Y(p)}" r="4.5" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/>`+
+      `<text class="svglbl" x="${X(q)+dx}" y="${Y(p)+dy}" text-anchor="${anchor}">${l}</text>`;
+  s+=dot(t.Q,t.Pc,'Pc '+fmt(t.Pc,dec),-10,-9,'end');
+  s+=dot(t.Q,t.Pp,'Pp '+fmt(t.Pp,dec),-10,17,'end');
+  s+=dot(star.Q,star.Pc,'Utan skatt '+fmt(star.Pc,dec),0,-13,'middle');
+  s+=`<text class="svglbl" x="${X(qhi)-6}" y="${Y(Pd(m,qhi))-9}" text-anchor="end" style="fill:var(--cs)">D</text>`;
+  s+=`<text class="svglbl" x="${X(qlo)+7}" y="${Y(Ps(m,qlo))+16}" style="fill:var(--ps)">S</text>`;
+  $('chart').innerHTML=s;
+
+  /* ---- readout ---- */
+  const row=(a,b,c)=>`<div class="flex justify-between gap-3 py-2.5" style="border-bottom:1px solid var(--line)"><span style="color:var(--ink2)">${a}</span><span class="num"${c?' style="color:var(--'+c+')"':''}>${b}</span></div>`;
+  const cShare=100*o.cBurden/(o.cBurden+o.pBurden), tb=st.eS/(st.eS-st.eD)*100;
+  $('readout').innerHTML =
+    row('Konsumentpris P<sub>c</sub>',fmt(t.Pc)+' kr')+
+    row('Producentpris P<sub>p</sub>',fmt(t.Pp)+' kr')+
+    row('Skattekil P<sub>c</sub> − P<sub>p</sub>',fmt(o.W)+' kr')+
+    row('Kvantitet mot utan skatt',fmt(100*(t.Q/star.Q-1),1)+' %')+
+    row('Skatteintäkt per 100 enheter',fmt(o.rev,0)+' kr')+
+    row('Effektivitetsförlust',fmt(o.dwl,0)+' kr','dwl')+
+    row('Förlust per intäktskrona',fmt(o.dwl/Math.max(o.rev,1e-9),3)+' kr')+
+    row('Konsumentens andel',fmt(cShare,1)+' %')+
+    row('Lärobok ε<sub>S</sub>/(ε<sub>S</sub> − ε<sub>D</sub>)',fmt(tb,1)+' %')+
+    `<p class="cite mt-2">Lärobokens formel gäller en ren styckeskatt utan moms. Momsen multiplicerar kilen, så modellens konsumentandel blir högre. Sätt moms till 0 % så sammanfaller talen.</p>`;
+
+  $('surplus').innerHTML = bar([
+      ['Konsumentöverskott',o.CS1,'var(--cs)'],
+      ['Producentöverskott',o.PS1,'var(--ps)'],
+      ['Skatteintäkt',o.rev,'var(--rev)'],
+      ['Effektivitetsförlust',o.dwl,'var(--dwl)',1]
+    ])+`<p class="cite mt-3">Andelar av den totala nytta som uppstår på en marknad utan skatt och moms (${fmt(o.total0,0)} kr per 100 enheter).</p>`;
+  $('incidence').innerHTML = bar([
+      ['Konsumenten bär',o.cBurden,'var(--cs)'],
+      ['Producenten bär',o.pBurden,'var(--ps)']
+    ])+`<p class="cite mt-3">Ju mer oelastisk efterfrågan är i förhållande till utbudet, desto större andel av bördan bär konsumenten.</p>`;
+}
+
+/* ============================================================
+   SOURCES
+   ============================================================ */
+const SV='https://www.skatteverket.se/foretag/skatterochavdrag/punktskatter/';
+const SOURCES=[
+  ['Cigarettskatt','2,08 kr per styck + 1 % av detaljhandelspriset',
+   `<a href="${SV}tobaksskatt/skattesatserfortobak.4.46ae6b26141980f1e2d4664.html" target="_blank" rel="noopener">Skatteverket, skattesatser för tobak</a>, gäller från 1 jan 2026`,'<span class="ok">Verifierad</span>'],
+  ['Alkoholskatt','Sprit 526,97 kr/l ren alkohol · Vin 8,5–15 %: 29,58 kr/l · Starköl 2,28 kr/l per volymprocent',
+   `<a href="${SV}alkoholskatt/skattesatserforalkohol.4.4a47257e143e26725aecb5.html" target="_blank" rel="noopener">Skatteverket, skattesatser för alkohol</a>, i kraft sedan 1 jan 2024`,'<span class="ok">Verifierad</span>'],
+  ['Skatt på bensin','Miljöklass 1, per liter: 1 jul–30 sep 2026: energiskatt 0,70 + koldioxidskatt 0,87. 1 okt–30 nov: 1,52 + 0,87. Från 1 dec: 1,52 + 3,27',
+   `<a href="${SV}energiskatter/skattpabransle.4.15532c7b1442f256bae5e56.html" target="_blank" rel="noopener">Skatteverket, skatt på bränsle</a>`,'<span class="ok">Verifierad</span>'],
+  ['Moms','25 % normalskattesats; reducerade nivåer 12 % och 6 %','Mervärdesskattelagen (2023:200), 6 kap.','<span class="ok">Verifierad</span>'],
+  ['Elasticitet, cigaretter','−0,40','Gallet &amp; List (2003), <i>Cigarette demand: a meta-analysis of elasticities</i>, Health Economics 12(10). Bekräftas av IARC Handbook 14 (2011).','<span class="ok">Publicerad skattning</span>'],
+  ['Elasticitet, alkohol','Sprit −0,80 · Vin −0,69 · Starköl −0,46','Wagenaar, Salois &amp; Komro (2009), <i>Effects of beverage alcohol price and tax levels on drinking</i>, Addiction 104(2), s. 179–190. Metaanalys av 1 003 skattningar ur 112 studier.','<span class="ok">Publicerad skattning</span>'],
+  ['Elasticitet, bensin','−0,34 kort sikt · −0,84 lång sikt','Brons, Nijkamp, Pels &amp; Rietveld (2008), <i>A meta-analysis of the price elasticity of gasoline demand</i>, Energy Economics 30(5). Jämför Labandeira m.fl. (2017).','<span class="ok">Publicerad skattning</span>'],
+  ['Elasticitet, utbud','1,0 till 6,0, utgångsvärde 2,0 (bensin 3,0)','Inget metastuderat konsensusvärde finns. Motiveras teoretiskt (elastiskt utbud vid konstant marginalkostnad) och varieras med reglaget.','<span class="flag">Antagande</span>'],
+  ['Butikspris, bensin','15,90 kr/l (bensin 95)','Riktpris augusti 2026. <a href="https://drivkraftsverige.se/fakta-statistik/priser/" target="_blank" rel="noopener">Drivkraft Sverige</a> för löpande prisstatistik.','<span class="ok">Observerad nivå</span>'],
+  ['Butikspris, tobak','80 kr per paket om 20','Spannet 75–95 kr rapporteras för 2026. Varierar med märke och inköpsställe.','<span class="flag">Representativ nivå</span>'],
+  ['Butikspris, alkohol','Sprit 245 kr · Vin 110 kr · Starköl 20 kr','Representativa hyllpriser. Kontrollera mot <a href="https://www.systembolaget.se/" target="_blank" rel="noopener">Systembolagets</a> prislista för den produkt du vill analysera.','<span class="flag">Representativ nivå</span>'],
+  ['Konsumentprisindex','Ingår inte','SCB:s API gick inte att nå. Modellen behöver inte KPI: butikspriset sätts direkt med reglaget.','<span class="flag">Utelämnad</span>']
+];
+$('sources').innerHTML = SOURCES.map(r=>`<tr><td>${r[0]}</td><td class="num" style="font-size:12px">${r[1]}</td><td style="color:var(--ink2)">${r[2]}</td><td>${r[3]}</td></tr>`).join('');
+
+/* ---- controls ---- */
+$('sTax').oninput = e=>{st.s=+e.target.value; render();};
+$('vat').onchange = e=>{st.v=+e.target.value; render();};
+$('eD').oninput   = e=>{st.eD=+e.target.value; render();};
+$('eS').oninput   = e=>{st.eS=+e.target.value; render();};
+$('p0').oninput   = e=>{const v=+e.target.value; if(v>0){st.pc0=v; render();}};
+
+select('cig');
+</script>
+
+</body></html>
